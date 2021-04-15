@@ -130,7 +130,7 @@
 \end{proof}
 
 \begin{statement}{2}
-  Demostrar que $e^{c I  + A} = e^c e^A$, para todos los escalares $c$ y todas las matrices cuadradas $A$.
+  Demuestre que $e^{c I  + A} = e^c e^A$, para todos los escalares $c$ y todas las matrices cuadradas $A$.
 \end{statement}
 
 \begin{proof}
@@ -152,7 +152,7 @@
 \end{proof}
 
 \begin{statement}{3}
-  Si $A^2 = A$, encontrar una f\'ormula para $e^A$.
+  Si $A^2 = A$, encuentre una f\'ormula para $e^A$.
 \end{statement}
 
 \begin{proof}
@@ -176,7 +176,7 @@
 \end{proof}
 
 \begin{statement}{4}
-  Calcular $e^A$ para las matrices
+  Calcule $e^A$ para las matrices
 \end{statement}
 
 \begin{enumerate}
@@ -218,6 +218,31 @@
       e^A = \begin{pmatrix} e^a & 0 \\ \frac{b}{a}(e^a - 1) & 1 \end{pmatrix}.
     \]
 \end{enumerate}
+
+\begin{statement}{5}
+  Si $A^2 = I$, demuestre que
+  \[
+    2 e^A = (e + \frac{1}{e}) I + (e - \frac{1}{e}) A.
+  \]
+\end{statement}
+
+\begin{proof}
+  Desarrollamos
+  \begin{align*}
+    e^A &= \sum_{i = 0}^{\infty} \frac{A^i}{i!}\\
+    &= \sum_{k = 0}^{\infty} \frac{A^{2k}}{(2k)!} + \sum_{k = 0}^{\infty} \frac{A^{2k + 1}}{(2k + 1)!}\\
+    &= \sum_{k = 0}^{\infty} \frac{I}{(2k)!} + \sum_{k = 0}^{\infty} \frac{A}{(2k + 1)!}\\
+    &= \left(\sum_{k = 0}^{\infty} \frac{1}{(2k)!}\right) I + \left(\sum_{k = 0}^{\infty} \frac{1}{(2k + 1)!}\right) A\\
+    &= \cosh(1) I + \sinh(1) A\\
+    &= \left(\frac{e + e^{-1}}{2}\right) I + \left(\frac{e - e^{-1}}{2}\right) A\\
+    2 e^A &= \left(e + \frac{1}{e}\right) I + \left(e - \frac{1}{e}\right) A.
+  \end{align*}
+\end{proof}
+
+\begin{statement}{6}
+  Supongamos que $\lambda \in \BC$ y $x \in \BC^n$ es no nulo tal que $Ax = \lambda x$.
+  Demuestre que $e^A x = e^{\lambda} x$.
+\end{statement}
 
 \end{document}
 
