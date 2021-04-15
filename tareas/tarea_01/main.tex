@@ -49,6 +49,7 @@
 \newcommand{\BQ}{\mathbb Q}
 \newcommand{\BZ}{\mathbb Z}
 \newcommand{\BN}{\mathbb N}
+\DeclareMathOperator{\Tr}{Tr}
 
 \title{MAT234 Ecuaciones Diferenciales Ordinarias}
 \author{Manuel Loaiza Vasquez}
@@ -86,51 +87,57 @@
 \begin{proof}
   \begin{enumerate}
     \item Desarrollemos $e^{\Theta} = I + \sum_{i = 1}^{\infty} \frac{\Theta^i}{i!}
-      = I + \lim_{n \to \infty} \sum_{j = 0}^n \frac{\Theta^{j + 1}}{(j + 1)!}$.
-      La sucesi\'on de sumas parciales es siempre igual a cero y por l\'imite de una
-      sucesi\'on constante obtenemos $e^{\Theta} = I$.
+    = I + \lim_{n \to \infty} \sum_{j = 0}^n \frac{\Theta^{j + 1}}{(j + 1)!}$.
+    La sucesi\'on de sumas parciales es siempre igual a cero y por l\'imite de
+    una sucesi\'on constante obtenemos $e^{\Theta} = I$.
+
     \item Analicemos el caso $A = \Theta$ utilizando el inciso anterior:
-      $\Theta^m e^\Theta = \Theta I = I \Theta = e^{\Theta} \Theta^m$.
-      Ahora procedamos a realizar la prueba por inducci\'on:
-      Para $A \neq \Theta, A e^A = A (\lim_{n \to \infty} \sum_{i = 0}^n \frac{A^i}{i!}) =
-      \lim_{n \to \infty} \sum_{i = 0}^n \frac{A^{i + 1}}{i!} =
-      \lim_{n \to \infty} (\sum_{i = 0}^n \frac{A^i}{i!} A) =
-      (\lim_{n \to \infty} \sum_{i = 0}^n \frac{A^i}{i!}) A =
-      e^A A$ por aritm\'etica de l\'imites.
-      Supongamos que se cumple para $m$, luego
-      $A^{m + 1} e^A = A (A^m e^A) = A (e^A A^m) = (A e^A) A^m = (e^A A) A^m = e^A (A A^m) = e^A A^{m + 1}$.
-    \item Primero probemos por inducci\'on que $(A^n)^T = (A^T)^n$. Para $n = 1$ es trivial.
-      Supongamos que se cumple para $n$. Luego $(A^{n + 1})^T = (A^n A)^T = A^T (A^n)^T = A^T (A^T)^n = (A^T)^{n + 1}$.
-      Ya que la transpuesta es continua, por l\'imites y continuidad tenemos
-      $(e^A)^T = (\lim_{n \to \infty} \sum_{i = 0}^n \frac{A^i}{i!})^T = \lim_{n \to \infty} (\sum_{i = 0}^n \frac{A^i}{i!})^T$
-      Asimismo, como $(A + B)^T = A^T + B^T$, inductivamente podemos extenderlo a una suma finita y utilizando lo probado inicialmente conseguimos
-      \begin{align*}
-        (e^A)^T &= \lim_{n \to \infty} \left(\sum_{i = 0}^n \frac{A^i}{i!}\right)^T\\
-        &= \lim_{n \to \infty} \sum_{i = 0}^n \frac{(A^i)^T}{i!}\\
-        &= \lim_{n \to \infty} \sum_{i = 0}^n \frac{(A^T)^i}{i!}\\
-        &= e^{A^T}.
-      \end{align*}
+    $\Theta^m e^\Theta = \Theta I = I \Theta = e^{\Theta} \Theta^m$.
+    Ahora procedamos a realizar la prueba por inducci\'on:
+    Para $A \neq \Theta, A e^A = A (\lim_{n \to \infty} \sum_{i = 0}^n \frac{A^i}{i!}) =
+    \lim_{n \to \infty} \sum_{i = 0}^n \frac{A^{i + 1}}{i!} =
+    \lim_{n \to \infty} (\sum_{i = 0}^n \frac{A^i}{i!} A) =
+    (\lim_{n \to \infty} \sum_{i = 0}^n \frac{A^i}{i!}) A =
+    e^A A$ por aritm\'etica de l\'imites.
+    Supongamos que se cumple para $m$, luego
+    $A^{m + 1} e^A = A (A^m e^A) = A (e^A A^m) = (A e^A) A^m = (e^A A) A^m = e^A (A A^m) = e^A A^{m + 1}$.
+
+    \item Primero probemos por inducci\'on que $(A^n)^T = (A^T)^n$.
+    Para $n = 1$ es trivial.
+    Supongamos que se cumple para $n$. Luego $(A^{n + 1})^T = (A^n A)^T = A^T (A^n)^T = A^T (A^T)^n = (A^T)^{n + 1}$.
+    Ya que la transpuesta es continua, por l\'imites y continuidad tenemos
+    $(e^A)^T = (\lim_{n \to \infty} \sum_{i = 0}^n \frac{A^i}{i!})^T = \lim_{n \to \infty} (\sum_{i = 0}^n \frac{A^i}{i!})^T$
+    Asimismo, como $(A + B)^T = A^T + B^T$, inductivamente podemos extenderlo a
+    una suma finita y utilizando lo probado inicialmente conseguimos
+    \begin{align*}
+      (e^A)^T &= \lim_{n \to \infty} \left(\sum_{i = 0}^n \frac{A^i}{i!}\right)^T\\
+      &= \lim_{n \to \infty} \sum_{i = 0}^n \frac{(A^i)^T}{i!}\\
+      &= \lim_{n \to \infty} \sum_{i = 0}^n \frac{(A^T)^i}{i!}\\
+      &= e^{A^T}.
+    \end{align*}
+    
     \item Desarrollamos la primera expresi\'on:
-      \begin{align*}
-        A e^B &= A \left(\sum_{i = 0}^{\infty} \frac{B^i}{i!}\right)\\
-        &= \left(\sum_{i = 0}^{\infty} A \frac{B^i}{i!}\right)\\
-        &= \left(\sum_{i = 0}^{\infty} \frac{B^i}{i!} A\right)\\
-        &= \left(\sum_{i = 0}^{\infty} \frac{B^i}{i!}\right) A\\
-        &= e^B A.
-      \end{align*}
-      Ahora desarrollamos la segunda expresi\'on:
-      \begin{align*}
-        e^A e^B &= \left(\sum_{i = 0}^{\infty} \frac{A^i}{i!}\right)\left(\sum_{j = 0}^{\infty} \frac{B^j}{j!}\right)\\
-        &= \sum_{i = 0}^{\infty} \sum_{j = 0}^{\infty} \frac{A^i B^j}{i! j!}\\
-        &= \sum_{j = 0}^{\infty} \sum_{i = 0}^{\infty} \frac{B^j A^i}{j! i!}\\
-        &= \left(\sum_{j = 0}^{\infty} \frac{B^j}{j!}\right)\left(\sum_{i = 0}^{\infty} \frac{A^i}{i!}\right)\\
-        &= e^B e^A.
-      \end{align*}
+    \begin{align*}
+      A e^B &= A \left(\sum_{i = 0}^{\infty} \frac{B^i}{i!}\right)\\
+      &= \left(\sum_{i = 0}^{\infty} A \frac{B^i}{i!}\right)\\
+      &= \left(\sum_{i = 0}^{\infty} \frac{B^i}{i!} A\right)\\
+      &= \left(\sum_{i = 0}^{\infty} \frac{B^i}{i!}\right) A\\
+      &= e^B A.
+    \end{align*}
+    Ahora desarrollamos la segunda expresi\'on:
+    \begin{align*}
+      e^A e^B &= \left(\sum_{i = 0}^{\infty} \frac{A^i}{i!}\right)\left(\sum_{j = 0}^{\infty} \frac{B^j}{j!}\right)\\
+      &= \sum_{i = 0}^{\infty} \sum_{j = 0}^{\infty} \frac{A^i B^j}{i! j!}\\
+      &= \sum_{j = 0}^{\infty} \sum_{i = 0}^{\infty} \frac{B^j A^i}{j! i!}\\
+      &= \left(\sum_{j = 0}^{\infty} \frac{B^j}{j!}\right)\left(\sum_{i = 0}^{\infty} \frac{A^i}{i!}\right)\\
+      &= e^B e^A.
+    \end{align*}
   \end{enumerate}
 \end{proof}
 
 \begin{statement}{2}
-  Demuestre que $e^{c I  + A} = e^c e^A$, para todos los escalares $c$ y todas las matrices cuadradas $A$.
+  Demuestre que $e^{c I  + A} = e^c e^A$, para todos los escalares $c$ y todas
+  las matrices cuadradas $A$.
 \end{statement}
 
 \begin{proof}
@@ -151,22 +158,24 @@
   \end{align*}
 \end{proof}
 
+Probemos el siguiente lema para proceder:
+
+\begin{lemma}\label{lem01}
+  Si $A^2 = A$, entonces $A^n = A$, para todo $n \geq 2$.
+\end{lemma}
+\begin{proof}
+  Procedamos a realizar la prueba por inducci\'on.
+  Para $n = 2$ nos lo han dado de regalo.
+  Supongamos que se cumple para $n \geq 2$.
+  Luego $A^{n + 1} = A^n A = A A = A^2 = A$.
+\end{proof}
+
 \begin{statement}{3}
   Si $A^2 = A$, encuentre una f\'ormula para $e^A$.
 \end{statement}
 
 \begin{proof}
-  Probemos el siguiente lema para proceder:
-  \begin{lemma}\label{lem01}
-    Si $A^2 = A$, entonces $A^n = A$, para todo $n \geq 2$.
-  \end{lemma}
-  \begin{proof}
-    Procedamos a realizar la prueba por inducci\'on.
-    Para $n = 2$ nos lo han dado de regalo.
-    Supongamos que se cumple para $n \geq 2$.
-    Luego $A^{n + 1} = A^n A = A A = A^2 = A$.
-  \end{proof}
-  Finalmente, desarollemos $e^A$ y utilicemos \cref{lem01}
+  Desarollemos $e^A$ y utilicemos \cref{lem01}
   \begin{align*}
     e^A &= I + \sum_{i = 1}^{\infty} \frac{A^i}{i!}\\
     &= I + \sum_{i = 1}^{\infty} \frac{A}{i!}\\
@@ -203,7 +212,12 @@
     a^n \begin{pmatrix} a & b \\ 0 & 0 \end{pmatrix} =
     a^n A.
     $
-    Finalmente,
+    Si $a = 0$, tenemos $e^A =
+    \begin{pmatrix}
+        1 & b \\
+        0 & 1
+    \end{pmatrix}$.
+    En otro caso, $a \neq 0$, tenemos
     \begin{align*}
       e^A &= I + \sum_{i = 1}^{\infty} \frac{A^i}{i!}\\
       &= I + A \sum_{i = 1}^{\infty} \frac{a^{i - 1}}{i!}\\
@@ -213,7 +227,9 @@
     \end{align*}
   \item
     $A = \begin{pmatrix} a & 0 \\ b & 0 \end{pmatrix}$:
-    F\'acilmente observamos que la matriz dada es la transpuesta del inciso anterior, por lo que
+    F\'acilmente observamos que la matriz dada es la transpuesta de la matriz
+    dada en el inciso 2. De la tercera propiedad obtenida en Proposici\'on.
+    obtenemos
     \[
       e^A = \begin{pmatrix} e^a & 0 \\ \frac{b}{a}(e^a - 1) & 1 \end{pmatrix}.
     \]
@@ -254,5 +270,64 @@
     &= e^{\lambda} x.
   \end{align*}
 \end{proof}
+
+\begin{statement}{7}
+  Demuestre que no todas las matrices cuadradas $A, B \in \BC^{n \times n}$
+  satisfacen $e^{A + B} = e^A e^B$.
+\end{statement}
+
+\begin{proof}
+  Para probar que esto es cierto, tenemos que encontrar un par de matrices
+  cuadradas $A, B \in \BC^{n \times n}$ tal que $e^{A + B} \neq e^A e^B$.
+  Sugerimos el siguiente contraejemplo:
+  \[
+    A = \begin{pmatrix}
+      1 & 0 \\
+      0 & 0
+    \end{pmatrix},
+    B = \begin{pmatrix}
+      0 & 1 \\
+      0 & 0
+    \end{pmatrix}
+    \text{ y }
+    A + B = \begin{pmatrix}
+      1 & 1 \\
+      0 & 0
+    \end{pmatrix}.
+  \]
+  Utilizando los resultados de Ejercicio 4 conseguimos
+  \[
+    e^{A + B} = \begin{pmatrix}
+      e & e - 1 \\
+      0 & 1
+    \end{pmatrix}  
+  \]
+  mientras que
+  \[
+    e^A e^B =
+    \begin{pmatrix}
+      e & 0 \\
+      0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+      1 & 1 \\
+      0 & 1
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      e & e \\
+      0 & 1
+    \end{pmatrix}
+  \]
+  las cuales no son iguales probando que no siempre se cumple la igualdad.
+\end{proof}
+
+\begin{statement}{8}
+  La \textbf{traza} de una matriz cuadrada $A$ de tama\~no $n \times n$ est\'a
+  definida por la suma de sus entradas en la diagonal
+  \[
+    \Tr(A) = \sum_{i = 1} ^ n a_{i i}.  
+  \]
+\end{statement}
 
 \end{document}
