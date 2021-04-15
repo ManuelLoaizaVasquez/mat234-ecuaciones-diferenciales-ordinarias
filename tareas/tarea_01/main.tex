@@ -66,7 +66,8 @@
 \vspace*{0.15in}
 
 \begin{framed}
-  Esta es una plantilla en \LaTeX. Util\'izala en tus listas de ejercicios, notas de clases y mucho m\'as.
+  Lista de ejercicios relacionada al material cubierto en las semanas 1 - 2 con
+  el profesor Ruben Agapito Ruiz.
 \end{framed}
 
 \begin{statement}{1}
@@ -228,11 +229,17 @@ Probemos el siguiente lema para proceder:
   \item
     $A = \begin{pmatrix} a & 0 \\ b & 0 \end{pmatrix}$:
     F\'acilmente observamos que la matriz dada es la transpuesta de la matriz
-    dada en el inciso 2. De la tercera propiedad obtenida en Proposici\'on.
-    obtenemos
+    dada en el inciso 2. De la tercera propiedad obtenida en la proposici\'on
+    inicial obtenemos lo siguiente:
     \[
-      e^A = \begin{pmatrix} e^a & 0 \\ \frac{b}{a}(e^a - 1) & 1 \end{pmatrix}.
+      e^A = \begin{pmatrix} e^a & 0 \\ \frac{b}{a}(e^a - 1) & 1 \end{pmatrix}
     \]
+    en caso $a \neq 0$,
+    $\begin{pmatrix}
+      1 & 0 \\
+      b & 1
+    \end{pmatrix}$
+    en otro caso.
 \end{enumerate}
 
 \begin{statement}{5}
@@ -328,6 +335,32 @@ Probemos el siguiente lema para proceder:
   \[
     \Tr(A) = \sum_{i = 1} ^ n a_{i i}.  
   \]
+  Demuestre que si $A$ es diagonalizable, entonces $\det(e^A) = e^{\Tr(A)}$.
 \end{statement}
+
+\begin{proof}
+  Como $A$ es diagonalizable, entonces existe una matriz invertible $P$ y una
+  matriz diagonal $D$ tales que $A = P D P^{-1}$. Luego
+  \[
+    \det(e^A) = \det(e^{P D P^{-1}}) = \det(P e^D P^{-1}) =
+    \det(P) \det(e^D) \det(P^{-1}) = \det(e^D).
+  \]
+  Desarollemos $e^D$ con $D = [d_{i i}]$ con $1 \leq i \leq n$:
+  \begin{align*}
+    e^D &= \sum_{j = 0} ^ {\infty} \frac{[d_{i i}] ^ j}{j!} \\
+    &= \sum_{j = 0} ^ {\infty} \frac{[(d_{i i})^j]}{j!} \\
+    &= [e^{d_{i i}}].
+  \end{align*}
+  Asimismos, utilizamos el teorema de que la traza es invariante respecto a
+  permutaciones c\'iclicas para conseguir
+  \[
+    \Tr(A) = \Tr(P D P^{-1}) = \Tr(D P^{-1} P) = \Tr(D).
+  \]
+  Finalmente, al tratarse de una matriz diagonal,
+  \[
+    \det(e^A) = \prod_{i = 1} ^ n e^{d_{i i}}  =
+    e^{\sum_{i = 1} ^ n d_{i i}} = e^{\Tr(D)} = e^{\Tr(A)}.
+  \]
+\end{proof}
 
 \end{document}
