@@ -244,5 +244,15 @@
   Demuestre que $e^A x = e^{\lambda} x$.
 \end{statement}
 
-\end{document}
+\begin{proof}
+  Por definici\'on
+  \begin{align*}
+    e^A x &= \left(\sum_{i = 0}^{\infty} \frac{A^i}{i!}\right) x\\
+    &= \sum_{i = 0}^{\infty} \frac{A^i x}{i!}\\
+    &= \sum_{i = 0}^{\infty} \frac{\lambda^i x}{i!}\\
+    &= \left(\sum_{i = 0}^{\infty} \frac{\lambda^i}{i!}\right) x\\
+    &= e^{\lambda} x.
+  \end{align*}
+\end{proof}
 
+\end{document}
