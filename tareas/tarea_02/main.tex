@@ -1,0 +1,210 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts,latexsym,amsthm,amssymb,amsmath,amscd,euscript}
+\usepackage{mathtools}
+\usepackage{framed}
+% Descomentar fullpage cuando se quiera utilizar menos margen horizontal
+%\usepackage{fullpage}
+\usepackage{hyperref}
+    \hypersetup{colorlinks=true,citecolor=blue,urlcolor =black,linkbordercolor={1 0 0}}
+\usepackage{cleveref}
+\newenvironment{statement}[1]{\smallskip\noindent\color[rgb]{1.00,0.00,0.50} {\bf #1.}}{}
+\allowdisplaybreaks[1]
+
+% Comandos para teoremas, definiciones, ejemplos, lemas, etc. para sus respectivos body types.
+\renewcommand*{\proofname}{Prueba}
+\renewcommand{\contentsname}{Contenido}
+
+\newtheorem{theorem}{Teorema}
+\newtheorem*{proposition}{Proposici\'on}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{conjecture}[theorem]{Conjetura}
+\newtheorem*{postulate}{Postulado}
+\theoremstyle{definition}
+\newtheorem{defn}[theorem]{Definici\'on}
+\newtheorem{example}[theorem]{Ejemplo}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Observaci\'on}
+\newtheorem*{notation}{Notaci\'on}
+\newtheorem*{note}{Nota}
+
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+
+% Keywords command
+\providecommand{\keywords}[1]
+{
+  \bigskip
+  \textbf{Keywords} #1
+}
+
+\crefname{lemma}{Lema}{Lemas}
+
+% Define tus comandos para hacer la vida más fácil.
+\newcommand{\BR}{\mathbb R}
+\newcommand{\BC}{\mathbb C}
+\newcommand{\BF}{\mathbb F}
+\newcommand{\BQ}{\mathbb Q}
+\newcommand{\BZ}{\mathbb Z}
+\newcommand{\BN}{\mathbb N}
+\DeclareMathOperator{\Tr}{Tr}
+
+\title{MAT234 Ecuaciones Diferenciales Ordinarias}
+\author{Manuel Loaiza Vasquez}
+\date{Abril 2021}
+
+\begin{document}
+
+\maketitle
+
+\vspace*{-0.25in}
+\centerline{Pontificia Universidad Cat\'olica del Per\'u}
+\centerline{Lima, Per\'u}
+\centerline{\href{mailto:manuel.loaiza@pucp.edu.pe}{{\tt manuel.loaiza@pucp.edu.pe}}}
+\vspace*{0.15in}
+
+\begin{framed}
+  Lista de ejercicios relacionada al material cubierto en las semanas 3 - 5 con
+  el profesor Ruben Agapito Ruiz.
+\end{framed}
+
+\begin{statement}{1}
+  Realice lo siguiente:
+\end{statement}
+
+\begin{statement}{a}
+  Pruebe que $f(x) = |x|^{1 / 2}$ no es localmente lipschitziana en $0$.
+  Esto quiere decir que $f$ no es Lipschitz en cualquier intervalo $(a, b)$ que
+  contenga al origen.
+  Asimismo, $f$ es Lipschitz en cualquier intervalo (finito o infinito) lejos
+  del origen.
+  ¿Es $f$ lipschitziana en $(0, 1)$?
+\end{statement}
+
+\begin{statement}{b}
+  Escriba tres soluciones diferentes para
+  \[
+    x'(t) = \sqrt{|x(t)|}
+  \]
+  que satisfagan $x(0) = 0$.
+\end{statement}
+
+\begin{statement}{2}
+  Considere la ecuaci\'on de Bernoulli
+  \[
+    x' + \varphi(t) x = \psi(t) x^n,
+  \]
+  donde $\phi, \psi$ son funciones continuas.
+  Para $n \neq 1$, la EDO es no lineal.
+  Pruebe que la ecuaci\'on puede ser reducida a una EDO lineal v\'ia la
+  sustituci\'on $y = x^{1 - n}$. Encuentr la soluci\'on general de
+  \[
+    x' + t^n x = x^n.  
+  \]
+\end{statement}
+
+\begin{statement}{3}
+  Considere la ecuaci\'on de Jacobi
+  \[
+    (a_1 + b_1 t + c_1 x) (t dx - x dt) - (a_2 + b_2 t + c_2 x) dx + (a_3 + b_3 t + c_3 x) dt = 0,  
+  \]
+  donde $a_i, b_i, c_i$ son constantes, para todo $i$ desde $1$ hasta $3$.
+  Transforme las variables $(t, x) \to (\tau, y)$, donde
+  $t = \tau + \alpha$ y $x = y + \beta$.
+  Escoja $\alpha, \beta$ apropiadamente para obtener la ecuaci\'on
+  \[
+    \tau dy - y d \tau   + \varphi\left(\frac{y}{\tau}\right) +
+    \psi\left(\frac{y}{\tau}\right) d\tau = 0.
+  \]
+  Ahora realice la sustituci\'on $y = \tau u$ para convertirla a una ecuaci\'on
+  de Bernoulli
+  \[
+    \frac{d \tau}{du} + h(u) \tau + g(u) \tau^2 = 0.
+  \]
+\end{statement}
+
+\begin{statement}{4}
+  Considere la ecuaci\'on generalizada de Riccati
+  \[
+    y' + \psi(t) y^2 + \varphi(t) y + \xi(t) = 0,
+  \]
+  donde $\psi, \varphi, \xi$ son funciones continuas.
+  En general, uno no tiene soluciones en forma expl\'icita pero asumamos que
+  $x_1(t)$ es una soluci\'on conocida. Sea $x(t)$ cualquier otra soluci\'on.
+  Escribimos $x = x_1 + y$. Muestre que $y$ satisface la ecuaci\'on de Bernoulli
+  \[
+    y' + (2 x_1 \psi + \varphi) y + \psi y^2 = 0.  
+  \]
+\end{statement}
+
+\begin{statement}{5}
+  Encuentre la soluci\'on general de la ecuaci\'on
+  \[
+    y' + y^2 + y - (1 + t + t^2) = 0.  
+  \]
+\end{statement}
+
+\begin{statement}{6}
+  Supongamos que $\psi(t) \neq 0$ para todo $t$ en la ecuaci\'on de Riccati
+  \[
+    y' + \psi(t) y^2 + \varphi(t) y + \xi(t) = 0,
+  \]
+  Muestre que la transformaci\'on $x = z' / (\psi z)$ reduce la ecuaci\'on
+  de Riccati a una ecuaci\'on lineal de segundo orden para $z$.
+\end{statement}
+
+\begin{statement}{7}
+  Reduzca la ecuaci\'on original de Riccati
+  \[
+    y' + a y^2 = b t^m,  
+  \]
+  donde $a$ y $b$ son constantes, a una EDO lineal de segundo orden
+  \[
+    z'' - a b t^m z = 0  
+  \]
+  utilizando la transformaci\'on de Ejercicio 6.
+\end{statement}
+
+\begin{statement}{8}
+  Tres soluciones de una EDO lineal no homog\'enea de segundo orden en $\BR$ son
+  \[
+    \varphi_1(t) = t^2,
+    \varphi_2(t) = t^2 + e^{2t},
+    \varphi_3(t) = 1 + t^2 + 2e^{2t}.  
+  \]
+  Encuentre la soluci\'on general de esta ecuaci\'on.
+\end{statement}
+
+\begin{statement}{9}
+  Resuelva el PVI
+  \begin{gather*}
+    y'' + y = f(x),\\
+    y(0) = 0,\\
+    y'(0) = 1,\\
+  \end{gather*}
+  donde
+  \[
+    f(x) =
+    \begin{cases}
+      0 & x < 0,\\
+      \cos x & 0 \leq x \leq 4 \pi,\\
+      0 & x > 4 \pi.
+    \end{cases}  
+  \]
+  v\'ia la construcci\'on de una funci\'on de Green.
+\end{statement}
+
+\begin{statement}{10}
+  (Ecuaci\'on de Cauchy-Euler)
+  Resuelva el PVF
+  \begin{gather*}
+    x^2 y'' - 4xy' + 6y = x^4,\\
+    y(1) - y'(1) = 0,\\
+    y(3) = 0
+  \end{gather*}
+  v\'ia la construcci\'on de una funci\'on de Green.
+\end{statement}
+
+\end{document}
