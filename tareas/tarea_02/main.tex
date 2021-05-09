@@ -99,7 +99,7 @@
   donde $\phi, \psi$ son funciones continuas.
   Para $n \neq 1$, la EDO es no lineal.
   Pruebe que la ecuaci\'on puede ser reducida a una EDO lineal v\'ia la
-  sustituci\'on $y = x^{1 - n}$. Encuentr la soluci\'on general de
+  sustituci\'on $y = x^{1 - n}$. Encuentre la soluci\'on general de
   \[
     x' + t^n x = x^n.  
   \]
@@ -108,14 +108,14 @@
 \begin{statement}{3}
   Considere la ecuaci\'on de Jacobi
   \[
-    (a_1 + b_1 t + c_1 x) (t dx - x dt) - (a_2 + b_2 t + c_2 x) dx + (a_3 + b_3 t + c_3 x) dt = 0,  
+    (a_1 + b_1 t + c_1 x) (t \, dx - x \, dt) - (a_2 + b_2 t + c_2 x) dx + (a_3 + b_3 t + c_3 x) dt = 0,  
   \]
   donde $a_i, b_i, c_i$ son constantes, para todo $i$ desde $1$ hasta $3$.
   Transforme las variables $(t, x) \to (\tau, y)$, donde
   $t = \tau + \alpha$ y $x = y + \beta$.
   Escoja $\alpha, \beta$ apropiadamente para obtener la ecuaci\'on
   \[
-    \tau dy - y d \tau   + \varphi\left(\frac{y}{\tau}\right) +
+    \tau dy - y d \tau   + \varphi\left(\frac{y}{\tau}\right) dy +
     \psi\left(\frac{y}{\tau}\right) d\tau = 0.
   \]
   Ahora realice la sustituci\'on $y = \tau u$ para convertirla a una ecuaci\'on
@@ -154,6 +154,31 @@
   Muestre que la transformaci\'on $x = z' / (\psi z)$ reduce la ecuaci\'on
   de Riccati a una ecuaci\'on lineal de segundo orden para $z$.
 \end{statement}
+
+\begin{proof}
+  Sea $x = \psi y$. Derivamos respecto a $t$
+  \begin{align*}
+    x' &= \psi' y + \psi y'\\
+    &= \psi' y + \psi(-\psi y^2 - \varphi y - \xi)\\
+    &= \psi' y - \psi^2 y^2 - \psi \varphi y - \psi \xi\\
+    &= \frac{\psi' x}{\psi} - \frac{\psi^2 x^2}{\psi^2} - \frac{\psi \varphi x}{\psi} - \psi \xi\\
+    &= -x^2 - \varphi x - \frac{\psi' x}{\psi} - \psi \xi'\\
+    &= -x^2 - \left(\varphi + \frac{\psi'}{\psi}\right) x - \psi \xi.
+  \end{align*}
+  Ahora hacemos $x = z' / z$. Primero derivamos esto respecto a $t$ para conseguir
+  \begin{align*}
+    x' &= \frac{z'' z - z' z'}{z^2}\\
+    &= \frac{z''}{z} - \left(\frac{z'}{z}\right)^2\\
+    &= \frac{z''}{z} - x^2
+  \end{align*}
+  y reemplazamos esto en nuestra expresi\'on para obtener
+  \begin{align*}
+    x' + x^2 + \left(\varphi + \frac{\psi'}{\psi}\right) x + \psi \xi = 0\\
+    \frac{z''}{z} + \left(\varphi + \frac{\psi'}{\psi}\right) \frac{z'}{z} + \psi \xi = 0\\
+    z'' + \left(\varphi + \frac{\psi'}{\psi}\right) z' + \psi \xi z = 0.
+  \end{align*}
+  lo cual es una ecuaci\'on lineal de segundo orden.
+\end{proof}
 
 \begin{statement}{7}
   Reduzca la ecuaci\'on original de Riccati
