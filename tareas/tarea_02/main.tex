@@ -105,6 +105,10 @@
   \]
 \end{statement}
 
+\begin{proof}
+  
+\end{proof}
+
 \begin{statement}{3}
   Considere la ecuaci\'on de Jacobi
   \[
@@ -233,6 +237,71 @@ conseguimos $y = b t^{m + 1} + c$ con $c \in \BR$.
   \]
   v\'ia la construcci\'on de una funci\'on de Green.
 \end{statement}
+
+\bigskip
+
+Primero resolvamos la ecuaci\'on homog\'enea asociada al PVI
+\begin{gather*}
+  y'' + y = 0\\
+  y_h(x) = c_1 \cos x + c_2 \sin x
+\end{gather*}
+y reemplazando las condiciones iniciales conseguimos
+\[
+  y_h(x) = \sin x.  
+\]
+
+Asimismo, tenemos que un conjunto fundamental de soluciones de la EDO
+homog\'enea en un intervalo que contiene al $0$ es $\{\cos x, \sin x\}$ con
+\[
+  W(\cos t, \sin t) =
+  \begin{vmatrix}
+    \cos t & \sin t\\
+    -\sin t & \cos t
+  \end{vmatrix}
+  = \cos^2 t + \sin^2 t = 1.
+\]
+
+Ahora hallemos la soluci\'on particular analizando la EDO en estado estacionario
+\[
+  y'' + y = f,\, y(0) = 0,\, y'(0) = 0.  
+\]
+Construyamos la funci\'on de Green con el conjunto fundamental hallado
+\[
+  G(x, t) = \frac{\cos t \sin x - \cos x \sin t}{W(\cos t, \sin t)}
+  = \cos t \sin x - \cos x \sin t
+\]
+
+De esta manera, la soluci\'on particular ser\'ia la siguiente:
+\[
+  y_p(x) = \int_0^x (\cos t \sin x - \cos x \sin t) f(t) \, dt.  
+\]
+
+\begin{itemize}
+  \item Para $x < 0$, trivialmente conseguimos $y_p(x) = 0$.
+  \item Para $0 \leq x \leq 4\pi$ tenemos
+  \begin{align*}
+    y_p(x) &= \int_0^x (\cos t \sin x - \cos x \sin t) \cos t \, dt\\
+    &= \int_0^x (\cos^2 \sin x - \cos x \sin t \cos t) \, dt\\
+    &= \sin x \int_0^x \cos^2 t \, dt - \cos x \int_0^x \sin t \cos t \, dt\\
+    &= \frac{\sin x}{2} \int_0^x 1 + \cos 2t \, dt
+    - \frac{\cos x}{2} \int_0^x \sin 2t \, dt\\
+    &= \frac{x \sin x}{2} + \frac{\sin x \sin 2x}{4} + \frac{\cos x \cos 2x}{4} - \frac{\cos x}{4}.
+  \end{align*}
+  \item Para $x > 4\pi$, tambi\'en obtenemos $y_p(x) = 0$.
+\end{itemize}
+
+Finalmente, la soluci\'on general es
+\[
+  y(x) = y_h(x) + y_p(x) = \sin x + y_p(x)
+\]
+con
+\[
+    y_p(x) =
+    \begin{cases}
+      (2x\sin x + \sin x \sin 2x - \cos x + \cos x \cos 2x) / 4 & 0 \leq x \leq 4\pi,\\
+      0 & \text{en otro caso}.
+    \end{cases}  
+\]
 
 \begin{statement}{10}
   (Ecuaci\'on de Cauchy-Euler)
