@@ -173,11 +173,11 @@
   \end{align*}
   y reemplazamos esto en nuestra expresi\'on para obtener
   \begin{align*}
-    x' + x^2 + \left(\varphi + \frac{\psi'}{\psi}\right) x + \psi \xi = 0\\
-    \frac{z''}{z} + \left(\varphi + \frac{\psi'}{\psi}\right) \frac{z'}{z} + \psi \xi = 0\\
-    z'' + \left(\varphi + \frac{\psi'}{\psi}\right) z' + \psi \xi z = 0.
+    x' + x^2 + \left(\varphi + \frac{\psi'}{\psi}\right) x + \psi \xi &= 0\\
+    \frac{z''}{z} + \left(\varphi + \frac{\psi'}{\psi}\right) \frac{z'}{z} + \psi \xi &= 0\\
+    z'' + \left(\varphi + \frac{\psi'}{\psi}\right) z' + \psi \xi z &= 0.
   \end{align*}
-  lo cual es una ecuaci\'on lineal de segundo orden.
+  lo cual es una ecuaci\'on lineal de segundo orden para $z$.
 \end{proof}
 
 \begin{statement}{7}
@@ -191,6 +191,19 @@
   \]
   utilizando la transformaci\'on de Ejercicio 6.
 \end{statement}
+
+\bigskip
+
+Primero identificamos $\psi(t) = a, \varphi(t) = 0$ y $\xi(t) = -b t^m$.
+Si $a \neq 0$, utilizando el resultado del ejercicio anterior tenemos
+\begin{align*}
+  z'' + \left(0 + \frac{0}{a}\right)  z' + a (-b t^m) z &= 0\\
+  z'' - a b t^m = 0.
+\end{align*}
+Cuando $a = 0$, tenemos una EDO de variables separables de la cual f\'acilmente
+conseguimos $y = b t^{m + 1} + c$ con $c \in \BR$.
+
+\bigskip
 
 \begin{statement}{8}
   Tres soluciones de una EDO lineal no homog\'enea de segundo orden en $\BR$ son
